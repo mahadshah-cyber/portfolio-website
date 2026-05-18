@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For You 💕</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            overflow: hidden;
+        }
+
+        .container {
+            text-align: center;
+            padding: 40px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 30px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
+            max-width: 500px;
+            animation: fadeIn 1s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        h1 {
+            color: #ff6b9d;
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            text-shadow: 0 0 20px rgba(255, 107, 157, 0.5);
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        .heart {
+            font-size: 80px;
+            display: inline-block;
+            animation: heartbeat 1s infinite;
+            cursor: pointer;
+        }
+
+        @keyframes heartbeat {
+            0%, 100% { transform: scale(1); }
+            25% { transform: scale(1.1); }
+            50% { transform: scale(1); }
+            75% { transform: scale(1.1); }
+        }
+
+        p {
+            color: #e8e8e8;
+            font-size: 1.2rem;
+            margin: 30px 0;
+            line-height: 1.6;
+        }
+
+        .buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            margin-top: 30px;
+        }
+
+        button {
+            padding: 15px 40px;
+            font-size: 1.1rem;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: bold;
+        }
+
+        #yesBtn {
+            background: linear-gradient(135deg, #ff6b9d, #c44569);
+            color: white;
+            box-shadow: 0 10px 30px rgba(255, 107, 157, 0.4);
+        }
+
+        #yesBtn:hover {
+            transform: scale(1.1);
+            box-shadow: 0 15px 40px rgba(255, 107, 157, 0.6);
+        }
+
+        #noBtn {
+            background: rgba(255, 255, 255, 0.1);
+            color: #888;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        #noBtn:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        .hidden {
+            display: none !important;
+        }
+
+        #celebration {
+            display: none;
+        }
+
+        #celebration.show {
+            display: block;
+            animation: celebrateIn 0.5s ease-out;
+        }
+
+        @keyframes celebrateIn {
+            from { opacity: 0; transform: scale(0.5); }
+            to { opacity: 1; transform: scale(1); }
+        }
+
+        .message-box {
+            background: linear-gradient(135deg, rgba(255,107,157,0.2), rgba(196,69,105,0.2));
+            padding: 30px;
+            border-radius: 20px;
+            margin-top: 20px;
+            border: 1px solid rgba(255, 107, 157, 0.3);
+        }
+
+        .message-box h2 {
+            color: #ff6b9d;
+            font-size: 2rem;
+            margin-bottom: 15px;
+        }
+
+        .hearts-fall {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1000;
+        }
+
+        .falling-heart {
+            position: absolute;
+            color: #ff6b9d;
+            font-size: 30px;
+            animation: fall linear infinite;
+            opacity: 0.8;
+        }
+
+        @keyframes fall {
+            0% { transform: translateY(-100px) rotate(0deg); opacity: 1; }
+            100% { transform: translateY(100vh) rotate(360deg); opacity: 0; }
+        }
+
+        .photos {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin: 30px 0;
+            flex-wrap: wrap;
+        }
+
+        .photo-frame {
+            width: 100px;
+            height: 100px;
+            border-radius: 15px;
+            background: linear-gradient(135deg, #ff6b9d, #c44569);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 40px;
+            animation: float 3s ease-in-out infinite;
+            box-shadow: 0 10px 30px rgba(255, 107, 157, 0.4);
+        }
+
+        .photo-frame:nth-child(2) { animation-delay: 0.5s; }
+        .photo-frame:nth-child(3) { animation-delay: 1s; }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div id="askSection">
+            <h1>Happy Valentine's Day! 💕</h1>
+            <div class="heart">❤️</div>
+            <p>From the moment I met you, my life changed in ways I never expected. You make every day brighter just by being in it.</p>
+            <p>Will you be my Valentine? 💖</p>
+            <div class="buttons">
+                <button id="yesBtn" onclick="sayYes()">Yes 💕</button>
+                <button id="noBtn" onclick="moveNo()">Maybe later</button>
+            </div>
+        </div>
+
+        <div id="celebration">
+            <div class="hearts-fall" id="heartsContainer"></div>
+            <div class="message-box">
+                <h2>YAY! 🎉</h2>
+                <div class="photos">
+                    <div class="photo-frame">🥰</div>
+                    <div class="photo-frame">💕</div>
+                    <div class="photo-frame">😍</div>
+                </div>
+                <p style="font-size: 1.3rem;">You just made me the happiest person! ❤️</p>
+                <p>I love you so much! You're my everything 💖</p>
+                <p style="font-size: 1.5rem; margin-top: 20px;">Forever yours 💝</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function sayYes() {
+            document.getElementById('askSection').classList.add('hidden');
+            document.getElementById('celebration').classList.add('show');
+            createHearts();
+        }
+
+        function moveNo() {
+            const noBtn = document.getElementById('noBtn');
+            const x = (Math.random() - 0.5) * 200;
+            const y = (Math.random() - 0.5) * 100;
+            noBtn.style.transform = `translate(${x}px, ${y}px)`;
+            noBtn.innerText = "Think again 🤔";
+            noBtn.style.background = "rgba(255, 107, 157, 0.3)";
+            noBtn.style.color = "#fff";
+        }
+
+        function createHearts() {
+            const container = document.getElementById('heartsContainer');
+            const hearts = ['💕', '💖', '💗', '❤️', '💘', '💝'];
+            
+            for (let i = 0; i < 50; i++) {
+                setTimeout(() => {
+                    const heart = document.createElement('div');
+                    heart.className = 'falling-heart';
+                    heart.innerText = hearts[Math.floor(Math.random() * hearts.length)];
+                    heart.style.left = Math.random() * 100 + 'vw';
+                    heart.style.animationDuration = (Math.random() * 3 + 2) + 's';
+                    heart.style.fontSize = (Math.random() * 30 + 20) + 'px';
+                    container.appendChild(heart);
+                    
+                    setTimeout(() => heart.remove(), 5000);
+                }, i * 100);
+            }
+        }
+    </script>
+</body>
+</html>
