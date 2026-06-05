@@ -60,7 +60,7 @@ const FALLBACK_PROJECTS: ProjectData[] = [
     tech: "React, Node.js, Express, MongoDB, Stripe",
     imageUrl: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&h=500&q=85",
     githubUrl: "https://github.com/mahadshah-cyber/ecommerce-platform",
-    liveUrl: null,
+    liveUrl: "https://client-flax-seven-43.vercel.app",
   },
   {
     id: "4",
@@ -84,7 +84,7 @@ const FALLBACK_PROJECTS: ProjectData[] = [
     tech: "Python, Flask, SQLite, Docker, HTML",
     imageUrl: "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=800&h=500&q=85",
     githubUrl: "https://github.com/mahadshah-cyber/web-vulnerability-scanner",
-    liveUrl: null,
+    liveUrl: "https://web-vulnerability-scanner-rust.vercel.app",
   },
   {
     id: "6",
